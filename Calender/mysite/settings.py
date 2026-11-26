@@ -31,15 +31,17 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
-    'django.contrib.admin',
-    'django.contrib.auth',
-    'django.contrib.contenttypes',
+    'mysite.apps.MongoAdminConfig',
+    'mysite.apps.MongoAuthConfig',
+    'mysite.apps.MongoContentTypesConfig',
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    # Third-party apps
     'rest_framework',
     'corsheaders',
-    # 'events',
+    # Local apps
+    'events',
 ]
 
 MIDDLEWARE = [
@@ -79,7 +81,7 @@ WSGI_APPLICATION = 'mysite.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django_mongodb_backend',
-        'HOST': 'mongodb://127.0.0.1:27017',  # Or your MongoDB Atlas URI
+        'HOST': 'mongodb+srv://<username>:<password>@cluster0.nks7sgj.mongodb.net/?retryWrites=true&w=majority',
         'NAME': 'calendar_db',
     }
 }
